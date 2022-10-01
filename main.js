@@ -76,7 +76,7 @@ function checkMatch() {
     const optionOneId = cardsChosenIds[0]
     const optionTwoId = cardsChosenIds[1]
 
-    if (optionOneId == optionTwoid) {
+    if (optionOneId == optionTwoId) {
         cards[optionOneId].setAttribute('src', 'imgs/blank.png')
         cards[optionTwoId].setAttribute('src', 'imgs/blank.png')
         alert('You have clicked the same image!')
