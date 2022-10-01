@@ -54,14 +54,30 @@ cardArray.sort(() => 0.5 - Math.random())
 
 
 const gridDisplay = document.querySelector('#grid')
+const cardsChosen = []
 
 function createBoard () {
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < cardArray.length; i++) {
         const card = document.createElement('img')
         card.setAttribute('src', 'imgs/blank.png')
         card.setAttribute('data-id', i)
+        card.addEventListener('click', flipCard)
         gridDisplay.appendChild(card)
     }
 }
 
 createBoard()
+
+function checkMatch() {
+    console.log('check for match!')
+
+}
+
+function flipCard() {
+    let cardId= this.getAttribute('data-id')
+    cardsChosen.push(cardArray[cardId].name)
+    this.setAttribute('src', cardArray[cardId].img)
+    if (cardsChosen.length === 2) {
+        setTimeout( checkMatch, 500)
+    }
+}
